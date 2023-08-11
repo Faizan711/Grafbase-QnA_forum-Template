@@ -1,0 +1,28 @@
+
+type User @model {
+  username: String! @unique
+  email: String! @unique
+  fullname: String!
+  avatarUrl: String
+  questions: [Question]
+  answers: [Answer]
+} 
+
+type Question @model {
+  title: String!
+  content: String!
+  author: User!
+  tags: [String]
+  upvotes: Int
+  downvotes: Int
+  createdAt: DateTime!
+}
+
+type Answer @model {
+  content: String!
+  author: User!
+  question: Question!
+  upvotes: Int
+  downvotes: Int
+  createdAt: DateTime!
+}
