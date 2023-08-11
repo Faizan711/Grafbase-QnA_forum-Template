@@ -22,6 +22,7 @@ type Question @model {
   #TODO:Remove Votes and Create a seperate Model for it
   #upvotes: Int
   #downvotes: Int
+  tags: [Tag]
   createdAt: DateTime!
 }
 
