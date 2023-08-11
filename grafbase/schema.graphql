@@ -52,3 +52,9 @@ type Vote @model {
   answer: Answer
   createdAt: DateTime!
 }
+
+type Tag @model{
+  id: Int! @unique
+  name: String! @unique
+  questions: [Question]
+}
