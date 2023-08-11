@@ -1,28 +1,45 @@
 
 type User @model {
+  id: Int! @unique
   username: String! @unique
   email: String! @unique
   fullname: String!
-  avatarUrl: String
+  avatarUrl: URL
+  comments: [Comment]
   questions: [Question]
   answers: [Answer]
 } 
 
 type Question @model {
+  id: Int! @unique
   title: String!
   content: String!
   author: User!
-  tags: [String]
+  answers: [Answer]
+  comments:[Comment]
+  #TODO:Remove Votes and Create a seperate Model for it
+  #upvotes: Int
+  #downvotes: Int
+  createdAt: DateTime!
+}
+
+type Answer @model {
+  id: Int! @unique
+  content: String!
+  author: User!
+  question: Question!
+  comments:[Comment]
   upvotes: Int
   downvotes: Int
   createdAt: DateTime!
 }
 
-type Answer @model {
-  content: String!
-  author: User!
+type Comment @model{
+  id: Int! @unique
+  createdBy: User!
   question: Question!
-  upvotes: Int
-  downvotes: Int
-  createdAt: DateTime!
+  commentText:String!
+  createdAt:DateTime!
 }
+
+#TODO:Add Tags and votes
