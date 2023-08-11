@@ -1,15 +1,17 @@
 # Welcome to Grafbase!
-# Define your data models, integrate auth, permission rules, custom resolvers, search, and more with Grafbase.
+#### Define your data models, integrate auth, permission rules, custom resolvers, search, and more with Grafbase.
 
-# Integrate Auth
-# https://grafbase.com/docs/auth
+## Integrate Auth
+https://grafbase.com/docs/auth
 #
-# schema @auth(providers: [{ type: oidc, issuer: "{{ env.ISSUER_URL }}" }], rules: [{ allow: private }]) {
-#   query: Query
-# }
+schema @auth(providers: [{ type: oidc, issuer: "{{ env.ISSUER_URL }}" }], rules: [{ allow: private }]) {
+  query: Query
+ }
+# 
 
-# Define Data Models
-# https://grafbase.com/docs/database
+## Define Data Models
+ https://grafbase.com/docs/database
+
 type Post @model @search {
   title: String!
   slug: String! @unique
@@ -34,11 +36,13 @@ type User @model {
   posts: [Post]
   comments: [Comment]
 
-  # Extend models with resolvers
-  # https://grafbase.com/docs/edge-gateway/resolvers
-  # gravatar: URL @resolver(name: "user/gravatar")
+  ## Extend models with resolvers
+ https://grafbase.com/docs/edge-gateway/resolvers
+
+ gravatar: URL @resolver(name: "user/gravatar")
 }
 
-# Start your backend
-# https://grafbase.com/docs/cli
-# npx grafbase dev
+## Start your backend
+ https://grafbase.com/docs/cli
+ 
+ npx grafbase dev
