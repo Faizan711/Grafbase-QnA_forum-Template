@@ -43,3 +43,10 @@ type Comment @model{
 }
 
 #TODO:Add Tags and votes
+type Vote @model {
+  id: Int! @unique
+  user: User!
+  question: Question
+  answer: Answer
+  createdAt: DateTime!
+}
