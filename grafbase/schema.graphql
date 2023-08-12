@@ -8,7 +8,7 @@ type User @model {
   comments: [Comment]
   questions: [Question]
   answers: [Answer]
-  votes: [Vote]  # New field for votes
+  votes: [Vote]  
 }
 
 type Question @model {
@@ -19,9 +19,6 @@ type Question @model {
   answers: [Answer]
   comments:[Comment]
   votes: [Vote]
-  #TODO:Remove Votes and Create a seperate Model for it
-  #upvotes: Int
-  #downvotes: Int
   tags: [Tag]
   createdAt: DateTime!
 }
@@ -32,7 +29,6 @@ type Answer @model {
   author: User!
   question: Question!
   comments:[Comment]
-  # removed upvotes and downvotes and added vote model
   votes: [Vote]
   createdAt: DateTime!
 }
