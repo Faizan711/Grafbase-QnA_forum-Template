@@ -41,6 +41,29 @@ type User @model {
 
  gravatar: URL @resolver(name: "user/gravatar")
 }
+## A Sample Deployed Instance
+[See here](https://grafbase.com/syedsaifuddin045/grafbase-qnaforum-template/main/pathfinder)
+## A Sample Test Query
+```
+mutation CreateUser {
+  userCreate(
+    input: {
+      username: "john_doe"
+      email: "john@example.com"
+      fullname: "John Doe"
+      avatarUrl: "https://example.com/avatar.jpg"
+    }
+  ) {
+    user {
+      id
+      username
+      email
+      fullname
+      avatarUrl
+    }
+  }
+}
+```
 
 ## Start your backend
  https://grafbase.com/docs/cli
