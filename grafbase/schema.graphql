@@ -1,6 +1,6 @@
 
 type User @model {
-  id: Int! @unique
+  id: ID! @unique
   username: String! @unique
   email: String! @unique
   fullname: String!
@@ -12,7 +12,7 @@ type User @model {
 }
 
 type Question @model {
-  id: Int! @unique
+  id: ID! @unique
   title: String!
   content: String!
   author: User!
@@ -27,7 +27,7 @@ type Question @model {
 }
 
 type Answer @model {
-  id: Int! @unique
+  id: ID! @unique
   content: String!
   author: User!
   question: Question!
@@ -38,7 +38,7 @@ type Answer @model {
 }
 
 type Comment @model{
-  id: Int! @unique
+  id: ID! @unique
   createdBy: User!
   question: Question!
   commentText:String!
@@ -47,7 +47,7 @@ type Comment @model{
 
 #TODO:Add Tags and votes
 type Vote @model {
-  id: Int! @unique
+  id: ID! @unique
   user: User!
   question: Question
   answer: Answer
@@ -55,7 +55,7 @@ type Vote @model {
 }
 
 type Tag @model{
-  id: Int! @unique
+  id: ID! @unique
   name: String! @unique
   questions: [Question]
 }
